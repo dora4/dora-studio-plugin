@@ -18,7 +18,7 @@
 
 ![step2](https://github.com/dora4/dora-studio-plugin/blob/main/art/step2.png)
 
-也看https://github.com/dora4/dora的使用教程
+也看 https://github.com/dora4/dora 的使用教程
 
 
 
