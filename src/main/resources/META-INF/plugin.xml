@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>com.dorachat.templates</id>
+    <name>Dora MVVM</name>
+    <vendor email="dora924666990@gmail.com"
+            url="http://www.dorachat.com">
+        DoraChat
+    </vendor>
+
+    <description><![CDATA[
+
+        <p>Dora全家桶<a href="https://github.com/dora4/dora">https://github.com/dora4/dora</a>，是一个高效开发Android手机APP的框架。众所周知，本Android Studio插件才是本体。</p><br/>
+        <em>If this tool is helpful to you, please give me a star on
+        <a href="https://github.com/dora4/dora-studio-plugin">Github</a></em>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>com.intellij.modules.androidstudio</depends>
+
+    <extensions defaultExtensionNs="com.android">
+        <!-- Add your extensions here -->
+        <tools.idea.wizard.template.wizardTemplateProvider
+            implementation="com.dorachat.templates.recipes.DoraTemplateWizardProvider"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
