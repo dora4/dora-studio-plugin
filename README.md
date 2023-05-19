@@ -4,9 +4,32 @@
 
 
 
-**jar包下载**
+**jar包下载（必须跟你的Android Studio版本对应）**
 
+<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.0.0_213.7172.25.2113.9123335.jar'>dora-studio-plugin-1.0.0_213.7172.25.2113.9123335.jar</a>
 <a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.0.0_222.4459.24.2221.9971841.jar'>dora-studio-plugin-1.0.0_222.4459.24.2221.9971841.jar</a>
+
+依次点击[Android Studio] - [About Android Studio]可以查看当前使用的Android Studio版本号，如果没有你要的插件版本，你可以自行打包编译。注意修改以下配置。
+
+```groovy
+compileKotlin {
+    kotlinOptions.jvmTarget = 你的jdk版本
+}
+
+compileTestKotlin {
+    kotlinOptions.jvmTarget = 你的jdk版本
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    plugins = ['Kotlin', 'android']
+    version.set("你的Android Studio版本，如213.7172.25.2113.9123335")
+    // Android Studio的代号是AI
+    type.set("AI")
+}
+```
+
+然后Edit Configrations，选择Gradle，点OK，然后就可以编译插件了，插件生成目录为dora-studio-plugin/build/libs/。
 
 **插件安装**
 
