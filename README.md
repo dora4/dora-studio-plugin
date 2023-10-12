@@ -51,4 +51,4 @@ https://github.com/JetBrains/intellij-platform-plugin-template
 
 https://github.com/cookpad/android-studio-templates
 
-https://github.com/dora4/dora
+https://github.com/balsikandar/Android-Studio-Plugins
