@@ -24,9 +24,9 @@ object MVVMActivityTemplate : Template {
     override val category: Category
         get() = Category.Activity
     override val constraints: Collection<TemplateConstraint>
-        get() = emptyList()     //AndroidX, kotlin
+        get() = emptyList()     // AndroidX, kotlin
     override val description: String
-        get() = "创建一个dora.MVVMActivity，来自https://github.com/dora4/dora"
+        get() = "创建一个dora.BaseActivity，来自https://github.com/dora4/dora"
     override val documentationUrl: String?
         get() = null
     override val formFactor: FormFactor

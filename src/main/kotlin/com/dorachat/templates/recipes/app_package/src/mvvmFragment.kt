@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2022 The Dora Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ class ${fragmentClass} : BaseFragment<${bindingName}>() {
     		return R.layout.${layoutName}
 	}
 
-	override fun initData(savedInstanceState: Bundle?) {
+	override fun initData(savedInstanceState: Bundle?, binding: ${bindingName}) {
      		TODO("Not yet implemented")
 	}
 }
@@ -54,6 +54,7 @@ fun mvvmFragment(
 package ${packageName};
 
 import android.os.Bundle;
+import androidx.annotation.Nullable;
 
 import dora.BaseFragment;
 
@@ -68,7 +69,7 @@ public class ${fragmentClass} extends BaseFragment<${bindingName}> {
     }
 
 	@Override
-    public void initData(Bundle savedInstanceState) {
+    public void initData(@Nullable Bundle savedInstanceState, ${bindingName} binding) {
         // TODO: Not yet implemented
 	}
 }

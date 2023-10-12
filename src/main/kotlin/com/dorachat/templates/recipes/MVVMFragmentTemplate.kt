@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2022 The Dora Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,9 @@ object MVVMFragmentTemplate : Template {
     override val category: Category
         get() = Category.Fragment
     override val constraints: Collection<TemplateConstraint>
-        get() = emptyList()     //AndroidX, kotlin
+        get() = emptyList()     // AndroidX, kotlin
     override val description: String
-        get() = "创建一个dora.MVVMFragment，来自https://github.com/dora4/dora"
+        get() = "创建一个dora.BaseFragment，来自https://github.com/dora4/dora"
     override val documentationUrl: String?
         get() = null
     override val formFactor: FormFactor
