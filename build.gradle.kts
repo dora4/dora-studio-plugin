@@ -53,4 +53,18 @@ tasks {
     publishPlugin {
         token.set(System.getenv("ORG_GRADLE_PROJECT_intellijPublishToken"))
     }
+    val javadocJar by registering(Jar::class) {
+        archiveClassifier.set("javadoc")
+    }
+
+    val sourcesJar = register<Jar>("sourcesJar") {
+        archiveClassifier.set("sources")
+        from(sourceSets.main.get().allSource)
+    }
+
+    artifacts {
+        archives(javadocJar)
+        archives(sourcesJar)
+    }
+
 }
