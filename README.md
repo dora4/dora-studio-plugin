@@ -20,14 +20,6 @@
 依次点击[Android Studio] - [About Android Studio]可以查看当前使用的Android Studio版本号，如果没有你要的插件版本，你可以自行打包编译。注意修改以下配置。
 
 ```groovy
-compileKotlin {
-    kotlinOptions.jvmTarget = 你的jdk版本
-}
-
-compileTestKotlin {
-    kotlinOptions.jvmTarget = 你的jdk版本
-}
-
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     plugins = ['Kotlin', 'android']
