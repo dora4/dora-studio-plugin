@@ -16,7 +16,7 @@
 
 package com.dorachat.templates.recipes.app_package.res.layout
 
-fun mvvmFragmentXml(
+fun dataBindingFragmentXml(
         packageName: String,
         fragmentClass: String
 ) = """

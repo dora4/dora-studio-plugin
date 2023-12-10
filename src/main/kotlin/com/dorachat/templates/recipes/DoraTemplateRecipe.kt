@@ -18,15 +18,22 @@ package com.dorachat.templates.recipes
 
 import com.android.tools.idea.wizard.template.*
 import com.android.tools.idea.wizard.template.impl.activities.common.generateManifest
-import com.dorachat.templates.recipes.app_package.res.layout.mvvmActivityXml
-import com.dorachat.templates.recipes.app_package.res.layout.mvvmFragmentXml
+import com.dorachat.templates.recipes.app_package.res.layout.dataBindingActivityXml
+import com.dorachat.templates.recipes.app_package.res.layout.dataBindingFragmentXml
+import com.dorachat.templates.recipes.app_package.src.dataBindingActivity
+import com.dorachat.templates.recipes.app_package.src.dataBindingActivityKt
+import com.dorachat.templates.recipes.app_package.src.dataBindingFragment
+import com.dorachat.templates.recipes.app_package.src.dataBindingFragmentKt
 import com.dorachat.templates.recipes.app_package.src.mvvmActivity
 import com.dorachat.templates.recipes.app_package.src.mvvmActivityKt
 import com.dorachat.templates.recipes.app_package.src.mvvmFragment
 import com.dorachat.templates.recipes.app_package.src.mvvmFragmentKt
+import com.dorachat.templates.recipes.app_package.src.viewModel
+import com.dorachat.templates.recipes.app_package.src.viewModelKt
+import java.io.File
 import java.lang.StringBuilder
 
-fun RecipeExecutor.mvvmActivityRecipe(
+fun RecipeExecutor.dataBindingActivityRecipe(
         moduleData: ModuleTemplateData,
         activityClass: String,
         activityTitle: String,
@@ -43,19 +50,84 @@ fun RecipeExecutor.mvvmActivityRecipe(
             packageName = packageName,
             isLauncher = false,
             hasNoActionBar = false,
-            generateActivityTitle = false,
+            generateActivityTitle = false
+
+            )
+
+    if (projectData.language == Language.Kotlin) {
+        save(dataBindingActivityKt(projectData.applicationPackage ?: packageName, packageName, activityClass,
+                buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
+    }
+    if (projectData.language == Language.Java) {
+        save(dataBindingActivity(projectData.applicationPackage ?: packageName, packageName, activityClass,
+                buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
+    }
+    save(dataBindingActivityXml(packageName, activityClass), resOut.resolve("layout/${layoutName}.xml"))
+
+    open(resOut.resolve("layout/${layoutName}.xml"))
+
+}
+
+fun RecipeExecutor.mvvmActivityRecipe(
+        moduleData: ModuleTemplateData,
+        activityClass: String,
+        viewModelClass: String,
+            activityTitle: String,
+        layoutName: String,
+        packageName: String
+) {
+    val (projectData, srcOut, resOut) = moduleData
+
+
+    generateManifest(
+            moduleData = moduleData,
+            activityClass = activityClass,
+//            activityTitle = activityTitle,
+            packageName = packageName,
+            isLauncher = false,
+            hasNoActionBar = false,
+            generateActivityTitle = false
 
     )
+    val viewModelDir = File(srcOut, "viewmodel")
+    if (!viewModelDir.exists()) {
+        viewModelDir.mkdir()
+    }
+    if (projectData.language == Language.Kotlin) {
+        save(mvvmActivityKt(projectData.applicationPackage ?: packageName, packageName, activityClass, viewModelClass,
+                buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
+        save(viewModelKt(packageName,
+                viewModelClass), viewModelDir.resolve("${viewModelClass}.${projectData.language.extension}"))
+    }
+    if (projectData.language == Language.Java) {
+        save(mvvmActivity(projectData.applicationPackage ?: packageName, packageName, activityClass, viewModelClass,
+                buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
+        save(viewModel(packageName,
+                viewModelClass), viewModelDir.resolve("${viewModelClass}.${projectData.language.extension}"))
 
-    if (projectData.language.equals(Language.Kotlin)) {
-        save(mvvmActivityKt(projectData.applicationPackage ?: packageName, packageName, activityClass,
-                buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
     }
-    if (projectData.language.equals(Language.Java)) {
-        save(mvvmActivity(projectData.applicationPackage ?: packageName, packageName, activityClass,
-                buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
+    save(dataBindingActivityXml(packageName, activityClass), resOut.resolve("layout/${layoutName}.xml"))
+
+    open(resOut.resolve("layout/${layoutName}.xml"))
+
+}
+
+fun RecipeExecutor.dataBindingFragmentRecipe(
+        moduleData: ModuleTemplateData,
+        fragmentClass: String,
+        layoutName: String,
+        packageName: String
+) {
+    val (projectData, srcOut, resOut) = moduleData
+    if (projectData.language == Language.Kotlin) {
+        save(dataBindingFragmentKt(projectData.applicationPackage ?: packageName, packageName, fragmentClass,
+                buildBindingName(layoutName), layoutName), srcOut.resolve("${fragmentClass}.${projectData.language.extension}"))
     }
-    save(mvvmActivityXml(packageName, activityClass), resOut.resolve("layout/${layoutName}.xml"))
+    if (projectData.language == Language.Java) {
+        save(dataBindingFragment(projectData.applicationPackage ?: packageName, packageName, fragmentClass,
+                buildBindingName(layoutName), layoutName), srcOut.resolve("${fragmentClass}.${projectData.language.extension}"))
+    }
+    save(dataBindingFragmentXml(packageName, fragmentClass), resOut.resolve("layout/${layoutName}.xml"))
 
     open(resOut.resolve("layout/${layoutName}.xml"))
 
@@ -64,19 +136,28 @@ fun RecipeExecutor.mvvmActivityRecipe(
 fun RecipeExecutor.mvvmFragmentRecipe(
         moduleData: ModuleTemplateData,
         fragmentClass: String,
+        viewModelClass: String,
         layoutName: String,
         packageName: String
 ) {
     val (projectData, srcOut, resOut) = moduleData
-    if (projectData.language.equals(Language.Kotlin)) {
-        save(mvvmFragmentKt(projectData.applicationPackage ?: packageName, packageName, fragmentClass,
-                buildBindingName(layoutName), layoutName), srcOut.resolve("${fragmentClass}.${projectData.language.extension}"))
+    val viewModelDir = File(srcOut, "viewmodel")
+    if (!viewModelDir.exists()) {
+        viewModelDir.mkdir()
     }
-    if (projectData.language.equals(Language.Java)) {
-        save(mvvmFragment(projectData.applicationPackage ?: packageName, packageName, fragmentClass,
+    if (projectData.language == Language.Kotlin) {
+        save(mvvmFragmentKt(projectData.applicationPackage ?: packageName, packageName, fragmentClass, viewModelClass,
                 buildBindingName(layoutName), layoutName), srcOut.resolve("${fragmentClass}.${projectData.language.extension}"))
+        save(viewModelKt(packageName,
+                viewModelClass), viewModelDir.resolve("${viewModelClass}.${projectData.language.extension}"))
     }
-    save(mvvmFragmentXml(packageName, fragmentClass), resOut.resolve("layout/${layoutName}.xml"))
+    if (projectData.language == Language.Java) {
+        save(mvvmFragment(projectData.applicationPackage ?: packageName, packageName, fragmentClass, viewModelClass,
+                buildBindingName(layoutName), layoutName), srcOut.resolve("${fragmentClass}.${projectData.language.extension}"))
+        save(viewModel(packageName,
+                viewModelClass), viewModelDir.resolve("${viewModelClass}.${projectData.language.extension}"))
+    }
+    save(dataBindingFragmentXml(packageName, fragmentClass), resOut.resolve("layout/${layoutName}.xml"))
 
     open(resOut.resolve("layout/${layoutName}.xml"))
 

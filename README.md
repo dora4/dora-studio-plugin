@@ -16,6 +16,12 @@
 1.1版本源码包
 <a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.1-sources.jar'>dora-studio-plugin-1.1-sources.jar</a>
 
+1.2版本jar包
+<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.1.jar'>dora-studio-plugin-1.2.jar</a>
+
+1.2版本源码包
+<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.1-sources.jar'>dora-studio-plugin-1.2-sources.jar</a>
+
 
 依次点击[Android Studio] - [About Android Studio]可以查看当前使用的Android Studio版本号，如果没有你要的插件版本，你可以自行打包编译。注意修改以下配置。
 

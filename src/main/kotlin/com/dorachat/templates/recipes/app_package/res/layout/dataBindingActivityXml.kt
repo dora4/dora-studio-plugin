@@ -14,14 +14,27 @@
  * limitations under the License.
  */
 
-package com.dorachat.templates.recipes
+package com.dorachat.templates.recipes.app_package.res.layout
 
-import com.android.tools.idea.wizard.template.WizardTemplateProvider
+fun dataBindingActivityXml(
+        packageName: String,
+  activityClass: String
+) = """
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="${packageName}.${activityClass}">
 
-class DoraTemplateWizardProvider: WizardTemplateProvider() {
-    override fun getTemplates() = listOf(
-            DataBindingActivityTemplate,
-            DataBindingFragmentTemplate,
-            MVVMActivityTemplate,
-            MVVMFragmentTemplate)
-}
+    <data>
+    
+    </data>
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    
+    </FrameLayout>
+
+</layout>
+"""

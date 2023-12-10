@@ -14,27 +14,28 @@
  * limitations under the License.
  */
 
-package com.dorachat.templates.recipes.app_package.res.layout
+package com.dorachat.templates.recipes.app_package.src
 
-fun mvvmActivityXml(
-        packageName: String,
-  activityClass: String
+fun viewModelKt(
+  packageName: String,
+  viewModelClass: String,
 ) = """
-<?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="${packageName}.${activityClass}">
+package ${packageName}.viewmodel
 
-    <data>
-    
-    </data>
-    
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    
-    </FrameLayout>
+import androidx.lifecycle.ViewModel
 
-</layout>
+class ${viewModelClass} : ViewModel() {
+}
+"""
+
+fun viewModel(
+        packageName: String,
+        viewModelClass: String,
+) = """
+package ${packageName}.viewmodel;
+
+import androidx.lifecycle.ViewModel;
+
+public class ${viewModelClass} extends ViewModel {
+}
 """

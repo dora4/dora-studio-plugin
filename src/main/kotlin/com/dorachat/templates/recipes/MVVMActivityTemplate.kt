@@ -26,7 +26,7 @@ object MVVMActivityTemplate : Template {
     override val constraints: Collection<TemplateConstraint>
         get() = emptyList()     // AndroidX, kotlin
     override val description: String
-        get() = "创建一个dora.BaseActivity，来自https://github.com/dora4/dora"
+        get() = "创建一个dora.BaseVMActivity，来自https://github.com/dora4/dora"
     override val documentationUrl: String?
         get() = null
     override val formFactor: FormFactor
@@ -40,6 +40,7 @@ object MVVMActivityTemplate : Template {
             mvvmActivityRecipe(
                     it as ModuleTemplateData,
                     activityClassInputParameter.value,
+                    viewModelInputParameter.value,
                     activityTitleInputParameter.value,
                     layoutNameInputParameter.value,
                     packageName.value
@@ -55,13 +56,14 @@ object MVVMActivityTemplate : Template {
         get() = listOf(
                 TextFieldWidget(activityTitleInputParameter),
                 TextFieldWidget(activityClassInputParameter),
+                TextFieldWidget(viewModelInputParameter),
                 TextFieldWidget(layoutNameInputParameter),
                 PackageNameWidget(packageName),
                 LanguageWidget()
         )
 
     override fun thumb(): Thumb {
-        return Thumb { findResource(this.javaClass, File("template_mvvm_activity.png")) }
+        return Thumb { findResource(this.javaClass, File("template_activity.png")) }
     }
 
     val activityClassInputParameter = stringParameter {
@@ -70,6 +72,14 @@ object MVVMActivityTemplate : Template {
         help = "The name of the activity class to create"
         constraints = listOf(Constraint.CLASS, Constraint.UNIQUE, Constraint.NONEMPTY)
         suggest = { layoutToActivity(layoutNameInputParameter.value) }
+    }
+
+    var viewModelInputParameter: StringParameter = stringParameter {
+        name = "ViewModel Name"
+        default = "MainViewModel"
+        help = "The name of the ViewModel"
+        constraints = listOf(Constraint.NONEMPTY)
+        suggest = { buildClassNameWithoutSuffix(activityClassInputParameter.value, "Activity") + "ViewModel" }
     }
 
     var layoutNameInputParameter: StringParameter = stringParameter {

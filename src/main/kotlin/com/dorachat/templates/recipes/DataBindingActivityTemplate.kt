@@ -20,13 +20,13 @@ import com.android.tools.idea.wizard.template.*
 import com.android.tools.idea.wizard.template.impl.activities.common.MIN_API
 import java.io.File
 
-object MVVMFragmentTemplate : Template {
+object DataBindingActivityTemplate : Template {
     override val category: Category
-        get() = Category.Fragment
+        get() = Category.Activity
     override val constraints: Collection<TemplateConstraint>
         get() = emptyList()     // AndroidX, kotlin
     override val description: String
-        get() = "创建一个dora.BaseVMFragment，来自https://github.com/dora4/dora"
+        get() = "创建一个dora.BaseActivity，来自https://github.com/dora4/dora"
     override val documentationUrl: String?
         get() = null
     override val formFactor: FormFactor
@@ -34,68 +34,59 @@ object MVVMFragmentTemplate : Template {
     override val minSdk: Int
         get() = MIN_API
     override val name: String
-        get() = "MVVM Fragment"
+        get() = "DataBinding Activity"
     override val recipe: Recipe
         get() = {
-            mvvmFragmentRecipe(
+            dataBindingActivityRecipe(
                     it as ModuleTemplateData,
-                    fragmentClassInputParameter.value,
-                    viewModelInputParameter.value,
+                    activityClassInputParameter.value,
+                    activityTitleInputParameter.value,
                     layoutNameInputParameter.value,
                     packageName.value
             )
         }
     override val uiContexts: Collection<WizardUiContext>
-        get() = listOf(WizardUiContext.FragmentGallery, WizardUiContext.MenuEntry, WizardUiContext.NewProject, WizardUiContext.NewModule)
+        get() = listOf(WizardUiContext.ActivityGallery, WizardUiContext.MenuEntry, WizardUiContext.NewProject, WizardUiContext.NewModule)
     override val useGenericInstrumentedTests: Boolean
         get() = false
     override val useGenericLocalTests: Boolean
         get() = false
     override val widgets: Collection<Widget<*>>
         get() = listOf(
-                TextFieldWidget(fragmentTitleInputParameter),
-                TextFieldWidget(fragmentClassInputParameter),
-                TextFieldWidget(viewModelInputParameter),
+                TextFieldWidget(activityTitleInputParameter),
+                TextFieldWidget(activityClassInputParameter),
                 TextFieldWidget(layoutNameInputParameter),
                 PackageNameWidget(packageName),
                 LanguageWidget()
         )
 
     override fun thumb(): Thumb {
-        return Thumb { findResource(this.javaClass, File("template_fragment.png")) }
+        return Thumb { findResource(this.javaClass, File("template_activity.png")) }
     }
 
-    val fragmentClassInputParameter = stringParameter {
-        name = "Fragment Name"
-        default = "MainFragment"
-        help = "The name of the fragment class to create"
+    val activityClassInputParameter = stringParameter {
+        name = "Activity Name"
+        default = "MainActivity"
+        help = "The name of the activity class to create"
         constraints = listOf(Constraint.CLASS, Constraint.UNIQUE, Constraint.NONEMPTY)
-        suggest = { layoutToFragment(layoutNameInputParameter.value) }
-    }
-
-    var viewModelInputParameter: StringParameter = stringParameter {
-        name = "ViewModel Name"
-        default = "MainViewModel"
-        help = "The name of the ViewModel"
-        constraints = listOf(Constraint.NONEMPTY)
-        suggest = { buildClassNameWithoutSuffix(fragmentClassInputParameter.value, "Fragment") + "ViewModel" }
+        suggest = { layoutToActivity(layoutNameInputParameter.value) }
     }
 
     var layoutNameInputParameter: StringParameter = stringParameter {
         name = "Layout Name"
-        default = "fragment_main"
-        help = "The name of the layout to create for the fragment"
+        default = "activity_main"
+        help = "The name of the layout to create for the activity"
         constraints = listOf(Constraint.LAYOUT, Constraint.UNIQUE, Constraint.NONEMPTY)
-        suggest = { fragmentToLayout(fragmentClassInputParameter.value) }
+        suggest = { activityToLayout(activityClassInputParameter.value) }
     }
 
-    val fragmentTitleInputParameter = stringParameter {
+    val activityTitleInputParameter = stringParameter {
         name = "Title"
         default = "Main"
-        help = "The name of the fragment. For launcher fragments, the application title"
+        help = "The name of the activity. For launcher activities, the application title"
         visible = { false }
         constraints = listOf(Constraint.NONEMPTY)
-        suggest = { buildClassNameWithoutSuffix(fragmentClassInputParameter.value, "Fragment") }
+        suggest = { buildClassNameWithoutSuffix(activityClassInputParameter.value, "Activity") }
     }
     val packageName = defaultPackageNameParameter
 }

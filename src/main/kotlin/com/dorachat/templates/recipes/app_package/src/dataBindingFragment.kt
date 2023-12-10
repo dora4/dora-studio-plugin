@@ -16,11 +16,10 @@
 
 package com.dorachat.templates.recipes.app_package.src
 
-fun mvvmFragmentKt(
+fun dataBindingFragmentKt(
         applicationPackage: String,
   packageName: String,
         fragmentClass: String,
-        viewModelClass: String,
   bindingName: String,
   layoutName: String
 ) = """
@@ -28,30 +27,27 @@ package ${packageName}
 
 import android.os.Bundle
 
-import dora.BaseVMFragment
+import dora.BaseFragment
 
 import ${applicationPackage}.R
 import ${applicationPackage}.databinding.${bindingName}
-import ${packageName}.viewmodel.${viewModelClass}
 
-class ${fragmentClass} : BaseVMFragment<${bindingName}, ${viewModelClass}>() {
+class ${fragmentClass} : BaseFragment<${bindingName}>() {
 
 	override fun getLayoutId(): Int {
     		return R.layout.${layoutName}
 	}
 
 	override fun initData(savedInstanceState: Bundle?, binding: ${bindingName}) {
-            super.initData(savedInstanceState, binding)
      		TODO("Not yet implemented")
 	}
 }
 """
 
-fun mvvmFragment(
+fun dataBindingFragment(
         applicationPackage: String,
         packageName: String,
         fragmentClass: String,
-        viewModelClass: String,
         bindingName: String,
         layoutName: String
 ) = """
@@ -60,13 +56,12 @@ package ${packageName};
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 
-import dora.BaseVMFragment;
+import dora.BaseFragment;
 
 import ${applicationPackage}.R;
 import ${applicationPackage}.databinding.${bindingName};
-import ${packageName}.viewmodel.${viewModelClass}
 
-public class ${fragmentClass} extends BaseVMFragment<${bindingName}, ${viewModelClass}> {
+public class ${fragmentClass} extends BaseFragment<${bindingName}> {
 
 	@Override
     protected int getLayoutId() {
@@ -75,7 +70,6 @@ public class ${fragmentClass} extends BaseVMFragment<${bindingName}, ${viewModel
 
 	@Override
     public void initData(@Nullable Bundle savedInstanceState, ${bindingName} binding) {
-        super.initData(savedInstanceState, binding);
         // TODO: Not yet implemented
 	}
 }

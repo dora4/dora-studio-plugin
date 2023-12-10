@@ -20,25 +20,28 @@ fun mvvmActivityKt(
         applicationPackage: String,
   packageName: String,
         activityClass: String,
+        viewModelClass: String,
   bindingName: String,
-  layoutName: String,
+  layoutName: String
 ) = """
 package ${packageName}
 
 import android.os.Bundle
 
-import dora.BaseActivity
+import dora.BaseVMActivity
 
 import ${applicationPackage}.R
 import ${applicationPackage}.databinding.${bindingName}
+import ${packageName}.viewmodel.${viewModelClass}
 
-class ${activityClass} : BaseActivity<${bindingName}>() {
+class ${activityClass} : BaseVMActivity<${bindingName}, ${viewModelClass}>() {
 
 	override fun getLayoutId(): Int {
     		return R.layout.${layoutName}
 	}
 
 	override fun initData(savedInstanceState: Bundle?, binding: ${bindingName}) {
+            super.initData(savedInstanceState, binding)
      		TODO("Not yet implemented")
 	}
 }
@@ -48,20 +51,22 @@ fun mvvmActivity(
         applicationPackage: String,
         packageName: String,
         activityClass: String,
+        viewModelClass: String,
         bindingName: String,
-        layoutName: String,
+        layoutName: String
 ) = """
 package ${packageName};
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 
-import dora.BaseActivity;
+import dora.BaseVMActivity;
 
 import ${applicationPackage}.R;
 import ${applicationPackage}.databinding.${bindingName};
+import ${packageName}.viewmodel.${viewModelClass};
 
-public class ${activityClass} extends BaseActivity<${bindingName}> {
+public class ${activityClass} extends BaseVMActivity<${bindingName}, ${viewModelClass}> {
 
 	@Override
     protected int getLayoutId() {
@@ -70,6 +75,7 @@ public class ${activityClass} extends BaseActivity<${bindingName}> {
 
 	@Override
     public void initData(@Nullable Bundle savedInstanceState, ${bindingName} binding) {
+        super.initData(savedInstanceState, binding);
         // TODO: Not yet implemented
 	}
 }

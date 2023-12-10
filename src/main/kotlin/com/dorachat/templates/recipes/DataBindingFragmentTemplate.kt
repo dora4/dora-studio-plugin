@@ -20,13 +20,13 @@ import com.android.tools.idea.wizard.template.*
 import com.android.tools.idea.wizard.template.impl.activities.common.MIN_API
 import java.io.File
 
-object MVVMFragmentTemplate : Template {
+object DataBindingFragmentTemplate : Template {
     override val category: Category
         get() = Category.Fragment
     override val constraints: Collection<TemplateConstraint>
         get() = emptyList()     // AndroidX, kotlin
     override val description: String
-        get() = "创建一个dora.BaseVMFragment，来自https://github.com/dora4/dora"
+        get() = "创建一个dora.BaseFragment，来自https://github.com/dora4/dora"
     override val documentationUrl: String?
         get() = null
     override val formFactor: FormFactor
@@ -34,13 +34,12 @@ object MVVMFragmentTemplate : Template {
     override val minSdk: Int
         get() = MIN_API
     override val name: String
-        get() = "MVVM Fragment"
+        get() = "DataBinding Fragment"
     override val recipe: Recipe
         get() = {
-            mvvmFragmentRecipe(
+            dataBindingFragmentRecipe(
                     it as ModuleTemplateData,
                     fragmentClassInputParameter.value,
-                    viewModelInputParameter.value,
                     layoutNameInputParameter.value,
                     packageName.value
             )
@@ -55,7 +54,6 @@ object MVVMFragmentTemplate : Template {
         get() = listOf(
                 TextFieldWidget(fragmentTitleInputParameter),
                 TextFieldWidget(fragmentClassInputParameter),
-                TextFieldWidget(viewModelInputParameter),
                 TextFieldWidget(layoutNameInputParameter),
                 PackageNameWidget(packageName),
                 LanguageWidget()
@@ -71,14 +69,6 @@ object MVVMFragmentTemplate : Template {
         help = "The name of the fragment class to create"
         constraints = listOf(Constraint.CLASS, Constraint.UNIQUE, Constraint.NONEMPTY)
         suggest = { layoutToFragment(layoutNameInputParameter.value) }
-    }
-
-    var viewModelInputParameter: StringParameter = stringParameter {
-        name = "ViewModel Name"
-        default = "MainViewModel"
-        help = "The name of the ViewModel"
-        constraints = listOf(Constraint.NONEMPTY)
-        suggest = { buildClassNameWithoutSuffix(fragmentClassInputParameter.value, "Fragment") + "ViewModel" }
     }
 
     var layoutNameInputParameter: StringParameter = stringParameter {

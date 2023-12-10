@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.dorachat"
-version = "1.1"
+version = "1.2"
 
 repositories {
     mavenCentral()
@@ -38,6 +38,8 @@ tasks {
         sinceBuild.set("223")
         untilBuild.set("232.*")
         changeNotes.set("""
+        <h3>1.2</h3>
+      新增对BaseVMActivity和BaseVMFragment的支持<br/>
         <h3>1.1</h3>
       initData()方法中增加databinding参数<br/>
         <h3>1.0.0</h3>
