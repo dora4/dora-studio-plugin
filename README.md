@@ -1,4 +1,4 @@
-# Android Studio Plugin for Dora
+# Android Studio Plugin for Dora SDK
 
 ![product](https://github.com/dora4/dora-studio-plugin/blob/main/art/product.png)
 
