@@ -10,13 +10,13 @@
 
 下载最新版本（v1.2）的插件包，开箱（棺）即用
 
-jar包
+jar包：
 <a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.2.jar'>dora-studio-plugin-1.2.jar</a>
 
-javadoc
+javadoc：
 <a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.2-javadoc.jar'>dora-studio-plugin-1.2-javadoc.jar</a>
 
-源码包
+源码包：
 <a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.2-sources.jar'>dora-studio-plugin-1.2-sources.jar</a>
 
 **插件安装**
