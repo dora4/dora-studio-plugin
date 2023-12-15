@@ -1,6 +1,6 @@
 <a href="./README.zh-CN.md">简体中文</a> ｜ <a href="./README.md">English</a>
 
-# Android Studio Plugin for Dora SDK
+# Android Studio 插件 - Dora SDK
 
 ![product](https://github.com/dora4/dora-studio-plugin/blob/main/art/product.png)
 
