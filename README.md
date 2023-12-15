@@ -8,7 +8,7 @@
 
 **JAR包下载**
 
-下载最新版本（v1.2）的插件包，开箱（棺）即用
+下载最新版本（v1.2）的插件包，开箱（棺）即用。
 
 jar包：
 <a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.2.jar'>dora-studio-plugin-1.2.jar</a>
@@ -47,7 +47,7 @@ intellij {
 **为什么要使用此插件**
 
 此插件服务于Dora SDK框架，提升Dora SDK的开发效率。
-也看Dora SDK（https://github.com/dora4/dora）的使用教程。
+也看Dora SDK（ https://github.com/dora4/dora ）的使用教程。
 
 **特别鸣谢**
 
