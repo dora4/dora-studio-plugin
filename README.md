@@ -10,7 +10,7 @@
 
 下载最新版本（v1.2）的插件包，开箱（棺）即用。
 
-<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/'>插件jar包集合</a>，如果没有你
+<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/'>插件jar包集合</a>，如果没有你正在使用
 的Android Studio的版本，请自行编译或下载跟插件相同版本的Android Studio，https://developer.android.com/studio/archive?hl=en 
 
 **插件安装**
