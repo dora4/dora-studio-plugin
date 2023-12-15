@@ -28,8 +28,8 @@ Download the plugin package for the latest version (v1.2), and it's ready to use
 
 Click [Android Studio] - [About Android Studio] to view the current version of Android Studio.
 
-groovy
 Copy code
+```groovy
 intellij {
     plugins = ['Kotlin', 'android']
     // See https://plugins.jetbrains.com/docs/intellij/android-studio.html#android-studio-releases-listing
@@ -38,6 +38,8 @@ intellij {
     // The codename for Android Studio is AI
     type.set("AI")
 }
+```
+
 Ensure that the version number in the above code matches the version of Android Studio you are using. Then, go to Edit Configurations, select Gradle, click OK, and you can now compile the plugin. The plugin's build directory is dora-studio-plugin/build/libs/.
 
 **Why Use This Plugin**
