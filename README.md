@@ -30,8 +30,7 @@ javadoc：
 ![step2](https://github.com/dora4/dora-studio-plugin/blob/main/art/step2.png)
 
 **如何编译**
-
-你也可以通过源代码自行编译jar文件。具体步骤如下：
+你可以通过下载跟插件相同版本的Android Studio，https://developer.android.com/studio/archive?hl=en，也可以通过源代码自行编译jar文件。具体步骤如下：
 依次点击[Android Studio] - [About Android Studio]可以查看当前使用的Android Studio版本号。
 
 ```groovy
