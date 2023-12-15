@@ -10,14 +10,8 @@
 
 下载最新版本（v1.2）的插件包，开箱（棺）即用。
 
-jar包：
-<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.2.jar'>dora-studio-plugin-1.2.jar</a>
-
-javadoc：
-<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.2-javadoc.jar'>dora-studio-plugin-1.2-javadoc.jar</a>
-
-源码包：
-<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/dora-studio-plugin-1.2-sources.jar'>dora-studio-plugin-1.2-sources.jar</a>
+jar包集合：
+<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/'>插件jar包目录</a>
 
 **插件安装**
 
@@ -34,10 +28,11 @@ javadoc：
 依次点击[Android Studio] - [About Android Studio]可以查看当前使用的Android Studio版本号。
 
 ```groovy
-// See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     plugins = ['Kotlin', 'android']
-    version.set("你的Android Studio版本，如213.7172.25.2113.9123335")
+    // See https://plugins.jetbrains.com/docs/intellij/android-studio.html#android-studio-releases-listing
+    // 填入你的Android Studio版本，如232.10227.8.2321.11203637
+    version.set("213.7172.25.2113.9014738")
     // Android Studio的代号是AI
     type.set("AI")
 }
@@ -50,6 +45,8 @@ intellij {
 也看Dora SDK（ https://github.com/dora4/dora ）的使用教程。
 
 **特别鸣谢**
+
+https://github.com/JetBrains/gradle-intellij-plugin/
 
 https://github.com/JetBrains/intellij-platform-plugin-template
 
