@@ -11,7 +11,8 @@
 下载最新版本（v1.2）的插件包，开箱（棺）即用。
 
 jar包集合：
-<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/'>插件jar包目录</a>
+<a href='https://github.com/dora4/dora-studio-plugin/blob/main/art/'>插件jar包目录</a>，如果没有你
+的Android Studio的版本，请自行编译或下载跟插件相同版本的Android Studio，https://developer.android.com/studio/archive?hl=en 
 
 **插件安装**
 
@@ -25,7 +26,6 @@ jar包集合：
 
 **如何编译**
 
-你可以通过下载跟插件相同版本的Android Studio，https://developer.android.com/studio/archive?hl=en ，也可以通过源代码自行编译jar文件。具体步骤如下：
 依次点击[Android Studio] - [About Android Studio]可以查看当前使用的Android Studio版本号。
 
 ```groovy
