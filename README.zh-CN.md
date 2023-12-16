@@ -6,7 +6,7 @@
 
 **IDEA下载**
 
-首先，你可能需要下载**IntelliJ IDEA**以支持此项目的编译，因为你的Android Studio可能会无法成功编译此项目。
+首先，你可能需要下载**IntelliJ IDEA**以支持此项目的编译，因为你的Android Studio可能会无法成功编译此项目。参考 https://www.yuque.com/u27500190/vsecth/rpc3t84gskftrz06 。
 
 **JAR包下载**
 
