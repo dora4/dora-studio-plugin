@@ -7,6 +7,7 @@
 **IDEA Download**
 
 First, you may need to download IntelliJ IDEA to support the compilation of this project, as your Android Studio may not be able to compile this project successfully.
+See https://www.yuque.com/u27500190/vsecth/rpc3t84gskftrz06.
 
 **JAR Package Download**
 
