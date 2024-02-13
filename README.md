@@ -2,7 +2,7 @@
 
 # Android Studio Plugin for Dora SDK
 
-![product](https://github.com/dora4/dora-studio-plugin/blob/main/art/product.png)
+<img width="963" alt="截屏2024-02-13 19 36 01" src="https://github.com/dora4/dora-studio-plugin/assets/71242257/77c7fd50-1618-48aa-87ba-9d977bf5c015">
 
 **IDEA Download**
 
