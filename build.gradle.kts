@@ -15,7 +15,7 @@ repositories {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
 //    version.set("231.9392.1.2311.10844163")
-    version.set("223.8836.35.2231.10406996")
+    version.set("231.9392.1.2311.10844163")
     // Android Studio的代号是AI
     type.set("AI")
     plugins.set(listOf("Kotlin", "android"))
@@ -34,8 +34,8 @@ tasks {
       新增对BaseVMActivity和BaseVMFragment的支持<br/>
         <h3>1.1</h3>
       initData()方法中增加databinding参数<br/>
-        <h3>1.0.0</h3>
-      初始版本，能够创建Java和Kotlin版本的MVVMActiviy和MVVMFragment<br/>
+        <h3>1.0</h3>
+      初始版本，能够创建Java和Kotlin版本的MVVM Activiy和MVVM Fragment<br/>
       """)
     }
     compileKotlin {
