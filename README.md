@@ -39,7 +39,7 @@ intellij {
 }
 ```
 
-Make sure the version number in the above code is consistent with the Android Studio you actually use. Then Edit Configrations, click the + sign, select Gradle, and click OK. Then you can compile the plug-in. The plug-in generation directory is dora-studio-plugin/build/libs/. If the error "The specified project directory ' ' does not exist." appears, please select the path of the Gradle project.
+Make sure the version number in the above code is consistent with the Android Studio you actually use. Then Edit Configrations, click the + sign, select Gradle, and click OK. Then you can compile the plugin. The plugin generation directory is dora-studio-plugin/build/libs/. If the error "The specified project directory ' ' does not exist." appears, please select the path of the Gradle project.
 <img width="1070" alt="截屏2024-03-12 22 49 10" src="https://github.com/dora4/dora-studio-plugin/assets/71242257/2305f759-a367-422a-864e-cb75e77f79bc">
 
 **Why Use This Plugin**
