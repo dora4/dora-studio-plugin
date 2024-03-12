@@ -39,7 +39,8 @@ intellij {
     type.set("AI")
 }
 ```
-保证上述代码中的版本号跟你实际使用的Android Studio一致。然后Edit Configrations，选择Gradle，点击OK，接下来就可以编译插件了。插件生成目录为 dora-studio-plugin/build/libs/ 。
+保证上述代码中的版本号跟你实际使用的Android Studio一致。然后Edit Configrations，点+号，选择Gradle，再点击OK，接下来就可以编译插件了。插件生成目录为 dora-studio-plugin/build/libs/ 。如果出现了The specified project directory '' does not exist.错误，请选择Gradle项目的路径即可。
+<img width="1300" alt="截屏2023-11-12 13 38 57" src="https://github.com/dora4/dora-studio-plugin/assets/71242257/0bdacd80-5f16-4667-80fd-a231dcb4fbd4">
 
 **为什么要使用此插件**
 
