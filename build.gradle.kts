@@ -15,7 +15,7 @@ repositories {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
 //    version.set("231.9392.1.2311.10844163")
-    version.set("231.9392.1.2311.10844163")
+    version.set("202.7660.26.42.7486908")
     // Android Studio的代号是AI
     type.set("AI")
     plugins.set(listOf("Kotlin", "android"))
@@ -27,7 +27,7 @@ tasks {
     }
     patchPluginXml {
         version.set("${project.version}")
-        sinceBuild.set("223")
+        sinceBuild.set("202")
         untilBuild.set("232.*")
         changeNotes.set("""
         <h3>1.2</h3>
