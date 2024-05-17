@@ -2,14 +2,7 @@
 
 # Android Studio Plugin for Dora SDK
 
-是的你看见到处是烦恼，
-抱怨在办公室里飘扬。
-一天天过得像狗一样，
-让你泪汪汪。
-你的零花钱还够用吗？
-你的工资单还在跌吗？
-这儿有一个哆啦牌框架，
-你不想看看吗？
+Yes, you see worries everywhere, complaints flying around the office. Living like a dog day by day will bring tears to your eyes. Do you still have enough pocket money? Is your paycheck still falling? There's a Doraemon frame here. Don't you want to see it?
 
 <img width="963" alt="截屏2024-02-13 19 36 01" src="https://github.com/dora4/dora-studio-plugin/assets/71242257/77c7fd50-1618-48aa-87ba-9d977bf5c015">
 
