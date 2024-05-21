@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.dorachat"
-version = "1.2"
+version = "1.3"
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ repositories {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
 //    version.set("231.9392.1.2311.10844163")
-    version.set("202.7660.26.42.7486908")
+    version.set("223.8836.35.2231.10406996")
     // Android Studio的代号是AI
     type.set("AI")
     plugins.set(listOf("Kotlin", "android"))
@@ -30,6 +30,8 @@ tasks {
         sinceBuild.set("202")
         untilBuild.set("232.*")
         changeNotes.set("""
+        <h3>1.3</h3>
+      新增对MenuPanel的支持<br/>
         <h3>1.2</h3>
       新增对BaseVMActivity和BaseVMFragment的支持<br/>
         <h3>1.1</h3>

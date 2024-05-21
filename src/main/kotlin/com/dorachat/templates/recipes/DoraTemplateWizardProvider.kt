@@ -22,6 +22,7 @@ class DoraTemplateWizardProvider: WizardTemplateProvider() {
     override fun getTemplates() = listOf(
             DataBindingActivityTemplate,
             DataBindingFragmentTemplate,
+            MenuPanelActivityTemplate,
             MVVMActivityTemplate,
             MVVMFragmentTemplate)
 }

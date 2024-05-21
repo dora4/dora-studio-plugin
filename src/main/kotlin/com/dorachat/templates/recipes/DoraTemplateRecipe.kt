@@ -20,10 +20,13 @@ import com.android.tools.idea.wizard.template.*
 import com.android.tools.idea.wizard.template.impl.activities.common.generateManifest
 import com.dorachat.templates.recipes.app_package.res.layout.dataBindingActivityXml
 import com.dorachat.templates.recipes.app_package.res.layout.dataBindingFragmentXml
+import com.dorachat.templates.recipes.app_package.res.layout.menuPanelActivityXml
 import com.dorachat.templates.recipes.app_package.src.dataBindingActivity
 import com.dorachat.templates.recipes.app_package.src.dataBindingActivityKt
 import com.dorachat.templates.recipes.app_package.src.dataBindingFragment
 import com.dorachat.templates.recipes.app_package.src.dataBindingFragmentKt
+import com.dorachat.templates.recipes.app_package.src.menuPanelActivity
+import com.dorachat.templates.recipes.app_package.src.menuPanelActivityKt
 import com.dorachat.templates.recipes.app_package.src.mvvmActivity
 import com.dorachat.templates.recipes.app_package.src.mvvmActivityKt
 import com.dorachat.templates.recipes.app_package.src.mvvmFragment
@@ -46,13 +49,11 @@ fun RecipeExecutor.dataBindingActivityRecipe(
     generateManifest(
             moduleData = moduleData,
             activityClass = activityClass,
-            activityTitle = activityTitle,
             packageName = packageName,
             isLauncher = false,
             hasNoActionBar = false,
             generateActivityTitle = false
-
-            )
+    )
 
     if (projectData.language == Language.Kotlin) {
         save(dataBindingActivityKt(projectData.applicationPackage ?: packageName, packageName, activityClass,
@@ -63,6 +64,40 @@ fun RecipeExecutor.dataBindingActivityRecipe(
                 buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
     }
     save(dataBindingActivityXml(packageName, activityClass), resOut.resolve("layout/${layoutName}.xml"))
+
+    open(resOut.resolve("layout/${layoutName}.xml"))
+
+}
+
+fun RecipeExecutor.menuPanelActivityRecipe(
+        moduleData: ModuleTemplateData,
+        activityClass: String,
+        activityTitle: String,
+        layoutName: String,
+        packageName: String
+) {
+    val (projectData, srcOut, resOut) = moduleData
+
+
+    generateManifest(
+            moduleData = moduleData,
+            activityClass = activityClass,
+            packageName = packageName,
+            isLauncher = false,
+            hasNoActionBar = false,
+            generateActivityTitle = false
+    )
+
+    if (projectData.language == Language.Kotlin) {
+        save(
+            menuPanelActivityKt(projectData.applicationPackage ?: packageName, packageName, activityClass,
+                buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
+    }
+    if (projectData.language == Language.Java) {
+        save(menuPanelActivity(projectData.applicationPackage ?: packageName, packageName, activityClass,
+                buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
+    }
+    save(menuPanelActivityXml(packageName, activityClass), resOut.resolve("layout/${layoutName}.xml"))
 
     open(resOut.resolve("layout/${layoutName}.xml"))
 
@@ -82,7 +117,6 @@ fun RecipeExecutor.mvvmActivityRecipe(
     generateManifest(
             moduleData = moduleData,
             activityClass = activityClass,
-            activityTitle = activityTitle,
             packageName = packageName,
             isLauncher = false,
             hasNoActionBar = false,
