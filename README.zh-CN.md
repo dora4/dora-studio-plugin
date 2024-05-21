@@ -36,7 +36,7 @@ intellij {
     plugins = ['Kotlin', 'android']
     // 参考 https://plugins.jetbrains.com/docs/intellij/android-studio.html#android-studio-releases-listing
     // 填入你的Android Studio版本，如232.10227.8.2321.11203637
-    version.set("213.7172.25.2113.9014738")
+    version.set("241.15989.150.2411.118405548")
     // Android Studio的代号是AI
     type.set("AI")
 }

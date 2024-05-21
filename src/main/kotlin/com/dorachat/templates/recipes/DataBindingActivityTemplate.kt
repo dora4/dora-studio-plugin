@@ -31,6 +31,8 @@ object DataBindingActivityTemplate : Template {
         get() = null
     override val formFactor: FormFactor
         get() = FormFactor.Mobile
+    override val minCompileSdk: Int
+        get() = MIN_API
     override val minSdk: Int
         get() = MIN_API
     override val name: String
@@ -45,13 +47,10 @@ object DataBindingActivityTemplate : Template {
                     packageName.value
             )
         }
+    override val revision: Int
+        get() = TODO("Not yet implemented")
     override val uiContexts: Collection<WizardUiContext>
         get() = listOf(WizardUiContext.ActivityGallery, WizardUiContext.MenuEntry, WizardUiContext.NewProject, WizardUiContext.NewModule)
-    override val useGenericInstrumentedTests: Boolean
-        get() = false
-    override val useGenericLocalTests: Boolean
-        get() = false
-
     override val widgets: Collection<Widget<*>>
         get() = listOf(
                 TextFieldWidget(activityTitleInputParameter),
