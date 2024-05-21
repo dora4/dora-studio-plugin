@@ -31,8 +31,6 @@ object DataBindingFragmentTemplate : Template {
         get() = null
     override val formFactor: FormFactor
         get() = FormFactor.Mobile
-    override val minCompileSdk: Int
-        get() = MIN_API
     override val minSdk: Int
         get() = MIN_API
     override val name: String
@@ -46,8 +44,6 @@ object DataBindingFragmentTemplate : Template {
                     packageName.value
             )
         }
-    override val revision: Int
-        get() = TODO("Not yet implemented")
     override val uiContexts: Collection<WizardUiContext>
         get() = listOf(WizardUiContext.FragmentGallery, WizardUiContext.MenuEntry, WizardUiContext.NewProject, WizardUiContext.NewModule)
 

@@ -49,7 +49,7 @@ fun RecipeExecutor.dataBindingActivityRecipe(
     generateManifest(
             moduleData = moduleData,
             activityClass = activityClass,
-            activityTitle = activityTitle,
+//            activityTitle = activityTitle,
             packageName = packageName,
             isLauncher = false,
             hasNoActionBar = false,
@@ -83,7 +83,7 @@ fun RecipeExecutor.menuPanelActivityRecipe(
     generateManifest(
             moduleData = moduleData,
             activityClass = activityClass,
-            activityTitle = activityTitle,
+//            activityTitle = activityTitle,
             packageName = packageName,
             isLauncher = false,
             hasNoActionBar = false,
@@ -119,7 +119,7 @@ fun RecipeExecutor.mvvmActivityRecipe(
     generateManifest(
             moduleData = moduleData,
             activityClass = activityClass,
-            activityTitle = activityTitle,
+//            activityTitle = activityTitle,
             packageName = packageName,
             isLauncher = false,
             hasNoActionBar = false,
