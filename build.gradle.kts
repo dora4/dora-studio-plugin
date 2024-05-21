@@ -27,7 +27,7 @@ tasks {
     }
     patchPluginXml {
         version.set("${project.version}")
-        sinceBuild.set("202")
+        sinceBuild.set("192")
         untilBuild.set("203.*")
         changeNotes.set("""
         <h3>1.3</h3>
