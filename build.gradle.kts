@@ -15,7 +15,7 @@ repositories {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
 //    version.set("231.9392.1.2311.10844163")
-    version.set("203.7717.56.2031.7935034")
+    version.set("213.7172.25.2113.9123335")
     // Android Studio的代号是AI
     type.set("AI")
     plugins.set(listOf("Kotlin", "android"))
