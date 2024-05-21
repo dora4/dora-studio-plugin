@@ -47,6 +47,10 @@ object DataBindingActivityTemplate : Template {
         }
     override val uiContexts: Collection<WizardUiContext>
         get() = listOf(WizardUiContext.ActivityGallery, WizardUiContext.MenuEntry, WizardUiContext.NewProject, WizardUiContext.NewModule)
+    override val useGenericInstrumentedTests: Boolean
+        get() = true
+    override val useGenericLocalTests: Boolean
+        get() = true
     override val widgets: Collection<Widget<*>>
         get() = listOf(
                 TextFieldWidget(activityTitleInputParameter),

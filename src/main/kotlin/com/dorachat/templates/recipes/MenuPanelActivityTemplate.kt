@@ -47,6 +47,10 @@ object MenuPanelActivityTemplate : Template {
         }
     override val uiContexts: Collection<WizardUiContext>
         get() = listOf(WizardUiContext.ActivityGallery, WizardUiContext.MenuEntry, WizardUiContext.NewProject, WizardUiContext.NewModule)
+    override val useGenericInstrumentedTests: Boolean
+        get() = false
+    override val useGenericLocalTests: Boolean
+        get() = false
 
     override val widgets: Collection<Widget<*>>
         get() = listOf(
