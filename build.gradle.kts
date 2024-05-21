@@ -27,8 +27,8 @@ tasks {
     }
     patchPluginXml {
         version.set("${project.version}")
-        sinceBuild.set("202")
-        untilBuild.set("232.*")
+        sinceBuild.set("213")
+        untilBuild.set("223.*")
         changeNotes.set("""
         <h3>1.3</h3>
       新增对MenuPanel的支持<br/>
