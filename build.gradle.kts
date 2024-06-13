@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.dorachat"
-version = "1.3"
+version = "1.4"
 
 repositories {
     mavenCentral()
@@ -30,6 +30,8 @@ tasks {
         sinceBuild.set("213")
         untilBuild.set("223.*")
         changeNotes.set("""
+        <h3>1.4</h3>
+      新增对SwipeLayout的支持<br/>
         <h3>1.3</h3>
       新增对MenuPanel的支持<br/>
         <h3>1.2</h3>
