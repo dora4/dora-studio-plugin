@@ -119,6 +119,7 @@ fun RecipeExecutor.swipeLayoutActivityRecipe(
     generateManifest(
         moduleData = moduleData,
         activityClass = activityClass,
+        activityTitle = activityTitle,
         packageName = packageName,
         isLauncher = false,
         hasNoActionBar = false,

@@ -49,7 +49,7 @@ object MVVMActivityTemplate : Template {
             )
         }
     override val revision: Int
-        get() = TODO("Not yet implemented")
+        get() = 0
     override val uiContexts: Collection<WizardUiContext>
         get() = listOf(WizardUiContext.ActivityGallery, WizardUiContext.MenuEntry, WizardUiContext.NewProject, WizardUiContext.NewModule)
 
