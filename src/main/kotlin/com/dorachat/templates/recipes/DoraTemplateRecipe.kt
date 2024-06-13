@@ -21,6 +21,7 @@ import com.android.tools.idea.wizard.template.impl.activities.common.generateMan
 import com.dorachat.templates.recipes.app_package.res.layout.dataBindingActivityXml
 import com.dorachat.templates.recipes.app_package.res.layout.dataBindingFragmentXml
 import com.dorachat.templates.recipes.app_package.res.layout.menuPanelActivityXml
+import com.dorachat.templates.recipes.app_package.res.layout.swipeLayoutActivityXml
 import com.dorachat.templates.recipes.app_package.src.dataBindingActivity
 import com.dorachat.templates.recipes.app_package.src.dataBindingActivityKt
 import com.dorachat.templates.recipes.app_package.src.dataBindingFragment
@@ -31,6 +32,8 @@ import com.dorachat.templates.recipes.app_package.src.mvvmActivity
 import com.dorachat.templates.recipes.app_package.src.mvvmActivityKt
 import com.dorachat.templates.recipes.app_package.src.mvvmFragment
 import com.dorachat.templates.recipes.app_package.src.mvvmFragmentKt
+import com.dorachat.templates.recipes.app_package.src.swipeLayoutActivity
+import com.dorachat.templates.recipes.app_package.src.swipeLayoutActivityKt
 import com.dorachat.templates.recipes.app_package.src.viewModel
 import com.dorachat.templates.recipes.app_package.src.viewModelKt
 import java.io.File
@@ -79,7 +82,6 @@ fun RecipeExecutor.menuPanelActivityRecipe(
 ) {
     val (projectData, srcOut, resOut) = moduleData
 
-
     generateManifest(
             moduleData = moduleData,
             activityClass = activityClass,
@@ -100,6 +102,39 @@ fun RecipeExecutor.menuPanelActivityRecipe(
                 buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
     }
     save(menuPanelActivityXml(packageName, activityClass), resOut.resolve("layout/${layoutName}.xml"))
+
+    open(resOut.resolve("layout/${layoutName}.xml"))
+
+}
+
+fun RecipeExecutor.swipeLayoutActivityRecipe(
+    moduleData: ModuleTemplateData,
+    activityClass: String,
+    activityTitle: String,
+    layoutName: String,
+    packageName: String
+) {
+    val (projectData, srcOut, resOut) = moduleData
+
+    generateManifest(
+        moduleData = moduleData,
+        activityClass = activityClass,
+        packageName = packageName,
+        isLauncher = false,
+        hasNoActionBar = false,
+        generateActivityTitle = false
+    )
+
+    if (projectData.language == Language.Kotlin) {
+        save(
+            swipeLayoutActivityKt(projectData.applicationPackage ?: packageName, packageName, activityClass,
+                buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
+    }
+    if (projectData.language == Language.Java) {
+        save(swipeLayoutActivity(projectData.applicationPackage ?: packageName, packageName, activityClass,
+            buildBindingName(layoutName), layoutName), srcOut.resolve("${activityClass}.${projectData.language.extension}"))
+    }
+    save(swipeLayoutActivityXml(packageName, activityClass), resOut.resolve("layout/${layoutName}.xml"))
 
     open(resOut.resolve("layout/${layoutName}.xml"))
 
