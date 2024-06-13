@@ -23,6 +23,7 @@ class DoraTemplateWizardProvider: WizardTemplateProvider() {
             DataBindingActivityTemplate,
             DataBindingFragmentTemplate,
             MenuPanelActivityTemplate,
+            SwipeLayoutActivityTemplate,
             MVVMActivityTemplate,
             MVVMFragmentTemplate)
 }
