@@ -15,7 +15,7 @@ repositories {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
 //    version.set("231.9392.1.2311.10844163")
-    version.set("241.14494.158.2411.11648550")
+    version.set("241.14494.240.2411.11771556")
     // Android Studio的代号是AI
     type.set("AI")
     plugins.set(listOf("Kotlin", "android"))
@@ -28,7 +28,7 @@ tasks {
     patchPluginXml {
         version.set("${project.version}")
         sinceBuild.set("241")
-        untilBuild.set("241.*")
+        untilBuild.set("242.*")
         changeNotes.set("""
         <h3>1.4</h3>
       新增对SwipeLayout的支持<br/>
@@ -43,10 +43,10 @@ tasks {
       """)
     }
     compileKotlin {
-        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.jvmTarget = "19"
     }
     compileTestKotlin {
-        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.jvmTarget = "19"
     }
     publishPlugin {
         token.set(System.getenv("ORG_GRADLE_PROJECT_intellijPublishToken"))
@@ -64,5 +64,4 @@ tasks {
         archives(javadocJar)
         archives(sourcesJar)
     }
-
 }
