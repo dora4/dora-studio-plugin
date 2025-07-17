@@ -2,6 +2,8 @@
 
 # Android Studio 插件 - Dora SDK
 
+![dorachat_Android_Studio_plugin_for_fast_code_generation_intelli_7b198d59-030d-4619-a9b8-43c5a2716f59](https://github.com/user-attachments/assets/d984a74f-7f95-4ea0-89ff-04da9098d3f0)
+
 是的你看见到处是烦恼， 抱怨在办公室里飘扬。 一天天过得像狗一样， 让你泪汪汪。 你的零花钱还够用吗？ 你的工资单还在跌吗？ 这儿有一个哆啦牌框架， 你不想看看吗？
 
 ![product](https://github.com/dora4/dora-studio-plugin/blob/main/art/product.png)
