@@ -2,6 +2,8 @@
 
 # Android Studio Plugin for Dora SDK
 
+![dorachat_Android_Studio_plugin_for_fast_code_generation_intelli_7b198d59-030d-4619-a9b8-43c5a2716f59](https://github.com/user-attachments/assets/d984a74f-7f95-4ea0-89ff-04da9098d3f0)
+
 Yes, you see worries everywhere, complaints flying around the office. Living like a dog day by day will bring tears to your eyes. Do you still have enough pocket money? Is your paycheck still falling? There's a Doraemon framework here. Don't you want to see it?
 
 <img width="963" alt="截屏2024-02-13 19 36 01" src="https://github.com/dora4/dora-studio-plugin/assets/71242257/77c7fd50-1618-48aa-87ba-9d977bf5c015">
